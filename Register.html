@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CH">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dessert_Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <style>
+        .form-control,
+        .btn-primary,
+        .btn-default {
+            border-radius: 50px;
+        }
+
+        .input-group-btn>.btn:focus {
+            outline: none;
+        }
+
+        .div-login {
+            margin-left: 8%;
+            margin-right: 8%;
+        }
+
+        .form-signin-heading {
+            text-align: center;
+        }
+
+        .tips {
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .jumbotron {
+            height: 100%;
+        }
+
+        #tip_phonenumber {
+            margin-top: 10px;
+        }
+
+        .agreeItems {
+            margin-top: 10px;
+        }
+
+        #navBtm {
+            z-index: 999;
+        }
+
+        .tips {
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .points {
+            color: cornflowerblue;
+            margin-top: 8px;
+            margin-left: 10px;
+            opacity: 0.5;
+        }
+
+        .glyphicon {
+            font-size: 25px;
+        }
+    </style>
+
+</head>
+
+<body class="jumbotron mdui-bottom-nav-fixed mdui-drawer-body-right">
+
+    <div class="container div-login">
+        <span id="backBtn" class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+        <form class="form-signin" action="Register.php" method="post">
+            <h2 class="form-signin-heading">Register</h2>
+            <br>
+            <div>
+                <label for="labelUserName" class="tips tips-Username">User Name:</label>
+                <input name="name" type="text" id="inputUserName" class="form-control"
+                    placeholder="Input 6-14 digits, letters or underscores" required autofocus>
+                <div style="display:none;" id="points_username"><label class="points points-username">please input 6-14
+                        digits, letters or underscores</label>
+                </div>
+
+                <label for="labelPassword" class="tips tips-Password">Password:</label>
+                <input name="password" type="password" id="inputPassword" class="form-control"
+                    placeholder="Input 8-14 digits, letters or underscores" required>
+                <div style="display:none;" id="points_password1"><label class="points points-password1">please input
+                        8-14 digits, letters or underscores</label>
+                </div>
+
+                <label for="labelPassword" class="tips tips-Password">Password:</label>
+                <input type="password" id="inputPassword2" class="form-control" placeholder="Input password again"
+                    required>
+                <div style="display:none;" id="points_password2"><label class="points points-password2">please input the
+                        same password</label>
+                </div>
+
+                <label for="labelPhone" class="tips tips-PhoneNum">Phone Number:</label>
+                <input name="userphone" type="text" id="inputPhoneNum" class="form-control"
+                    placeholder="Please input phonenumber" required>
+                <div style="display:none;" id="points_phonenumber"><label class="points points-phonenumber">please input
+                        right phonenumber</label>
+                </div>
+
+                <label for="labelCodeNumber" class="tips tips-code">Code:</label>
+                <div class="input-group">
+                    <input name="code" type="text" id="inputCodeNum" class="form-control"
+                        placeholder="Please input the code" required>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" id="getcodeBtn">Get Code</button>
+                    </span>
+                </div><!-- /input-group -->
+                <div style="display:none;" id="points_code"><label class="points points-code">please input
+                        right code number</label>
+                </div>
+
+            </div>
+
+            <div class="checkbox">
+                <label class="agreeItems">
+                    <input name="is_check" type="checkbox" value="agreeCheckBox" checked> I agree the<a
+                        href=""><u>《Items of services》</u></a>
+                </label>
+            </div>
+            <br>
+            <button name="submit" class="btn btn-md btn-primary btn-block" type="submit"
+                id="SigninBtn">Register</button><br>
+            <button class="btn btn-md btn-primary btn-block" id="LoginBtn">Go To Login</button>
+        </form>
+
+    </div> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var flag1 = false,
+            flag2 = false,
+            flag3 = false,
+            flag4 = false,
+            flag5 = false;
+
+        $("#SigninBtn").click(function () {
+            if ($('#inputUserName').val() != "" && $('#inputCodeNum').val() != "" && $('#inputPassword')
+                .val() != "" && $('#inputPassword2').val() != "" && $(
+                    '#inputPhoneNum').val() != "" && (flag1 == flag2) && (flag2 == flag3) && (flag3 == flag4) &&
+                (flag4 == flag5) && (flag1 == true)) {
+                return true;
+            } else {
+                alert("信息填写错误，请检查！");
+                return false;
+
+            }
+
+        });
+        $('#inputUserName').bind('input propertychange', function () {
+            var username = document.getElementById('inputUserName').value;
+            var div_username = document.getElementById("points_username");
+            if (!(/^[0-9a-zA-Z_]{6,14}$/.test(username))) {
+                div_username.style.display = '';
+                flag1 = false;
+
+            } else {
+                div_username.style.display = 'none';
+                flag1 = true;
+            }
+        });
+        $('#inputPassword').bind('input propertychange', function () {
+            var password1 = document.getElementById('inputPassword').value;
+            var div_password1 = document.getElementById("points_password1");
+            if (!(/^[0-9a-zA-Z_]{8,14}$/.test(password1))) {
+                div_password1.style.display = '';
+                flag2 = false;
+            } else {
+                div_password1.style.display = 'none';
+                flag2 = true;
+            }
+        });
+        $('#inputPassword2').bind('input propertychange', function () {
+            var password1 = document.getElementById('inputPassword').value;
+            var password2 = document.getElementById('inputPassword2').value;
+            var div_password2 = document.getElementById("points_password2");
+            if (password1 != password2) {
+                div_password2.style.display = '';
+                flag3 = false;
+            } else {
+                div_password2.style.display = 'none';
+                flag3 = true;
+            }
+        });
+
+        $('#inputPhoneNum').bind('input propertychange', function () {
+            var phoneNumber = document.getElementById('inputPhoneNum').value;
+            var div_phonenumber = document.getElementById("points_phonenumber");
+            if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(phoneNumber))) {
+                div_phonenumber.style.display = '';
+                flag4 = false;
+            } else {
+                div_phonenumber.style.display = 'none';
+                flag4 = true;
+            }
+        });
+
+        $('#inputCodeNum').bind('input propertychange', function () {
+            var code = document.getElementById('inputCodeNum').value;
+            var div_code = document.getElementById("points_code");
+            if (!(/^[0-9]{4,4}$/.test(code))) {
+                div_code.style.display = '';
+                flag5 = false;
+            } else {
+                div_code.style.display = 'none';
+                flag5 = true;
+            }
+        });
+        $('#getcodeBtn').on('click', function () {
+            var getCodeValue = document.getElementById("getcodeBtn");
+            if ((getCodeValue.innerHTML == "Get Code") || (getCodeValue.innerHTML == "Get Code Again")) {
+                var timing = 60;
+                getCodeValue.innerHTML = "60 s";
+                var interval = setInterval(function () {
+                    timing = timing - 1;
+                    if (timing <= 0) {
+                        getCodeValue.innerHTML = "Get Code Again";
+                        clearInterval(interval)
+                    } else {
+                        var x = timing.toString() + " s";
+                        getCodeValue.innerHTML = x;
+                    }
+                }, 1000)
+            }
+        })
+        $("#LoginBtn").click(function () {
+            self.location = 'Login.html';
+        });
+
+        $("#backBtn").click(function () {
+            history.back('-1');
+        });
+    </script>
+</body>
+
+</html>

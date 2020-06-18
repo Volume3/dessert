@@ -1,0 +1,6 @@
+/* custom-subset */
+@font-face {
+  src:
+    url('LMAO-1.custom-subset.woff2') format('woff2');
+  unicode-range: U+0057, U+0065, U+006C, U+0063, U+006F, U+006D, U+0065;
+}

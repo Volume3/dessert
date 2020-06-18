@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" media="screen"
+		href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+	<link rel="stylesheet" href="source/css/mdui.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.divBackground {
+			text-align: center;
+		}
+
+		.img1 {
+			width: 100%;
+		}
+
+		.img {
+			width: 90%;
+		}
+
+		.h3 {
+			margin-top: 30px;
+			color: #3b4b9e;
+		}
+
+		.cakes {
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		.both-align {
+			display: flex;
+		}
+
+		.both-align-left {
+			color: #3b4b9e;
+			font-style: initial;
+			margin-top: 7px;
+		}
+
+		.both-align-center {
+			flex-grow: 1;
+			text-align: center;
+		}
+
+		.both-align-right {
+			font-size: 25px;
+			color: #3b4b9e;
+		}
+
+		.mdui-icon {
+			position: relative;
+			top: 3px;
+			left: -1px;
+		}
+
+		#loginBtn {
+			position: relative;
+			left: 5px;
+			top: 0px;
+		}
+
+		#registerBtn {
+			position: relative;
+			top: 9px;
+		}
+
+		.orderMenu {
+			width: 100%;
+			margin-right: 5%;
+			position: fixed;
+			bottom: 0px;
+			max-height: 35%;
+			background-color: rgb(255, 255, 255, 0.95);
+			text-align: center;
+			overflow-y: scroll;
+		}
+
+		.both-align {
+			margin-top: 20px;
+		}
+
+		.input-group-addon {
+			border: none;
+			color: white;
+			background-color: #6c7bc2;
+			font-size: 20px;
+			width: 25%;
+			min-width: 24px;
+		}
+
+		.input-group {
+			border-radius: 20px;
+		}
+
+		.editcakes {
+			width: 30%;
+		}
+
+		.both-align>.both-align-left {
+			font-size: 15px;
+		}
+
+		.Order>.Sumprices {
+			font-size: 20px;
+		}
+
+		.Order {
+			margin-bottom: 10px;
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		.Order>.OrderBtn {
+			width: 33%;
+		}
+
+		.OrderBtn>.OrderBtna {
+			width: 100%;
+			font-size: 18px;
+		}
+
+		.MenuTitle {
+			font-size: 20px;
+			text-align: left;
+			margin-top: 10px;
+			color: #337ab7;
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		.Menu-line {
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+		#cakeNum {
+			text-align: center;
+			min-width: 36px;
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+
+		#orderMenuType,
+		#otherOrdrMenuType {
+			margin-right: 5%;
+			margin-left: 5%;
+		}
+
+		.selectCake {
+			margin-left: 5%;
+			margin-right: 5%;
+		}
+
+		.caketype {
+			margin-top: 0px;
+		}
+
+		@media (min-width: 489px) and (max-width: 600px) {}
+	</style>
+
+</head>
+
+<body class="mdui-bottom-nav-fixed mdui-drawer-body-right">
+
+	<div class="orderMenu">
+
+		<p class="both-align-left MenuTitle">Orders</p>
+		<hr class="Menu-line">
+
+		<div id="orderMenuType">
+			<div class="caketype both-align">
+				<p class="both-align-left">Signature Mille | 9 inches | $42</p>
+				<div class="both-align-center"></div>
+				<div class="input-group editcakes">
+					<span class="input-group-addon cakes-less">-</span>
+					<input type="text" class="form-control" id="cakeNum" value="1">
+					<span class="input-group-addon cakes-more">+</span>
+				</div>
+			</div>
+			<hr>
+		</div>
+
+		<div id="otherOrdrMenuType"></div>
+
+		<div class="both-align Order">
+			<p class="both-align-left Sumprices" id="totalMoney">Total: $0</p>
+			<div class="both-align-center"></div>
+			<p class="input-group OrderBtn"><a class="btn btn-primary btn-md OrderBtna" href="javascript:alert('Reservation successfully！');window.location='home.html';"
+					role="button">Order</a></p>
+		</div>
+	</div>
+
+	<div class="divBackground">
+		<img class="img1" src="img/1.jpg">
+		<h3 class="h3">— — — — — — Cakes — — — — — —</h6>
+
+			<div class="cakes cake-1">
+				<img class="img" src="img/6.jpg">
+				<div class="both-align selectCake" id="selectCake">
+					<p class="both-align-left">Signature Mille | 9 inches | $42</p>
+					<div class="both-align-center"></div>
+					<i class="icon ion-plus-circled both-align-right"></i>
+				</div>
+			</div>
+
+			<div class="cakes cake-2">
+				<img class="img lazy" src="img/bakk.png" data-src="img/3.jpg" data-srcset="img/3.jpg 2x, img/3.jpg 1x">
+				<div class="both-align selectCake">
+					<p class="both-align-left">Signature Mille | 9 inches | $40</p>
+					<div class="both-align-center"></div>
+					<i class="icon ion-plus-circled both-align-right"></i>
+				</div>
+			</div>
+
+			<div class="cakes cake-3">
+				<img class="img lazy" src="img/bakk.png" data-src="img/4.jpg" data-srcset="img/4.jpg 2x, img/4.jpg 1x">
+				<div class="both-align selectCake">
+					<p class="both-align-left">Signature Mille | 9 inches | $42</p>
+					<div class="both-align-center"></div>
+					<i class="icon ion-plus-circled both-align-right"></i>
+				</div>
+			</div>
+
+			<div class="cakes cake-4">
+				<img class="img lazy" src="img/bakk.png" data-src="img/5.jpg" data-srcset="img/5.jpg 2x, img/5.jpg 1x">
+				<div class="both-align selectCake">
+					<p class="both-align-left">Signature Mille | 9 inches | $42</p>
+					<div class="both-align-center"></div>
+					<i class="icon ion-plus-circled both-align-right"></i>
+				</div>
+			</div>
+
+			<div class="cakes cake-5">
+				<img class="img lazy" src="img/bakk.png" data-src="img/2.jpg" data-srcset="img/2.jpg 2x, img/2.jpg 1x">
+				<div class="both-align selectCake">
+					<p class="both-align-left">Signature Mille | 9 inches | $42</p>
+					<div class="both-align-center"></div>
+					<i class="icon ion-plus-circled both-align-right"></i>
+				</div>
+			</div>
+
+			<div class="cakes cake-6">
+				<img class="img lazy" src="img/bakk.png" data-src="img/7.jpg" data-srcset="img/7.jpg 2x, img/7.jpg 1x">
+				<div class="both-align selectCake">
+					<p class="both-align-left">Signature Mille | 9 inches | $42</p>
+					<div class="both-align-center"></div>
+					<i class="icon ion-plus-circled both-align-right"></i>
+				</div>
+			</div>
+	</div>
+
+	<div class="mdui-drawer mdui-drawer-right mdui-drawer-close mdui-color-white" id="drawer">
+		<ul class="mdui-list">
+			<li class="mdui-list-item mdui-ripple" id="list-content">
+				<div class="mdui-list-item-content">Find a Store</div>
+			</li>
+			<li class="mdui-list-item mdui-ripple">
+				<div class="mdui-list-item-content">Confection</div>
+			</li>
+			<li class="mdui-list-item mdui-ripple">
+				<div class="mdui-list-item-content">Menu</div>
+			</li>
+			<li class="mdui-divider"></li>
+			<li class="mdui-list-item mdui-ripple">
+				<div class="mdui-list-item-content">All mail</div>
+			</li>
+			<li class="mdui-list-item mdui-ripple">
+				<div class="mdui-list-item-content">Blog</div>
+			</li>
+			<li class="mdui-list-item mdui-ripple">
+				<div class="mdui-list-item-content">Order</div>
+			</li>
+			<li class="mdui-list-item mdui-ripple">
+				<div class="mdui-list-item-content">About Us</div>
+			</li>
+			<li class="mdui-list-item mdui-ripple">
+				<div class="mdui-list-item-content">Help Center</div>
+			</li>
+			<li class="mdui-divider"></li>
+			<br>
+
+			<div id="account-logout">
+				<span data-reactroot="">
+					<a id="menu-login" class="sign-in" href="Login.html">
+						<img src="img/icon-account.svg" id="loginImg">
+						<span>
+							<span id="loginBtn">Login</span>
+						</span>
+					</a>
+					<a id="menu-join" class="button small register" href="Register.html">
+						<span>
+							<span id="registerBtn">Register</span>
+						</span>
+					</a>
+				</span>
+			</div>
+			<br><br>
+
+			<footer class="aside-footer">
+				<div class="container">
+					<a id="en-collapse" class="lang" href="">
+						中文
+					</a>|
+					<a id="privacy-collapse" href="">
+						Privacy policy
+					</a>|
+					<a id="terms-collapse" href="">
+						Terms of use
+					</a>
+				</div>
+			</footer>
+		</ul>
+	</div>
+
+	<div class="mdui-bottom-nav mdui-color-white mdui-bottom-nav-scroll-hide" id="navBtm">
+		<a href="home.html" class="mdui-ripple">
+			<i class="mdui-icon material-icons">home</i>
+			<label>Home</label>
+		</a>
+		<a href="menu.html" class="mdui-ripple mdui-bottom-nav-active">
+			<i class="mdui-icon material-icons">restaurant_menu</i>
+			<label>Menu</label>
+		</a>
+		<a href="order.html" class="mdui-ripple">
+			<i class="mdui-icon material-icons">content_paste</i>
+			<label>Transaction</label>
+		</a>
+		<a href="javascript:seemore();" class="mdui-ripple">
+			<i class="mdui-icon material-icons">more_horiz</i>
+			<label>More</label>
+		</a>
+	</div>
+
+	<div class="orderView">
+
+	</div>
+	<script src="source/js/mdui.min.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"))
+			let active = false
+
+			const lazyLoad = function () {
+				if (active === false) {
+					active = true 
+					setTimeout(() => {
+						lazyImages.forEach((lazyImage) => {
+							if ((lazyImage.getBoundingClientRect().top <= window.innerHeight &&
+									lazyImage.getBoundingClientRect().bottom >= 0) &&
+								getComputedStyle(lazyImage).display !== "none") {
+								lazyImage.src = lazyImage.dataset.src;
+								lazyImage.srcset = lazyImage.dataset.srcset;
+								lazyImage.classList.remove("lazy");
+								lazyImages = lazyImages.filter(image => {
+									return image !== lazyImage;
+								});
+								if (lazyImages.length === 0) {
+									document.removeEventListener("scroll", lazyLoad);
+									window.removeEventListener("resize", lazyLoad);
+									window.removeEventListener("orientationchange", lazyLoad);
+								}
+							}
+						})
+						active = false
+					}, 200)
+				}
+			}
+			document.addEventListener("scroll", lazyLoad);
+			window.addEventListener("resize", lazyLoad);
+			window.addEventListener("orientationchange", lazyLoad);
+		});
+	</script>
+
+	<script type="text/javascript">
+		var inst = new mdui.Drawer('#drawer');
+
+		function seemore() {
+			inst.open();
+		}
+		$(document).on("click", function () {
+			inst.close();
+		})
+		$('#navBtm a i').click(function () {
+			$('#navBtm a i').removeClass("change");
+			$('#navBtm a label').removeClass("change");
+			$(this).addClass("change");
+			$(this).next().addClass("change");
+		})
+		$('#navBtm a label').click(function () {
+			$('#navBtm a i').removeClass("change");
+			$('#navBtm a label').removeClass("change");
+			$(this).addClass("change");
+			$(this).prev().addClass("change");
+		})
+
+		$(".ion-plus-circled").click(function () {
+			var cakeName = $(this).prev().prev()[0].innerHTML;
+			// var cakeName = $(this).prev().prev().html();
+			var str =
+				"<div class='caketype both-align'> <div class='caketype both-align'> <p class='both-align-left'>"
+			str = str + cakeName;
+			str = str +
+				"</p> <div class='both-align-center'></div> <div class='input-group editcakes'> <span class='input-group-addon cakes-less'>-</span> <input type='text' class='form-control' id='cakeNum' value='1'> <span class='input-group-addon cakes-more'>+</span> </div> </div>";
+			$("#otherOrdrMenuType").append(str);
+			$("#otherOrdrMenuType").append("<hr>");
+
+			var a = cakeName.split("|");
+			var money = parseInt(a[2].substring(2));
+			var totalstr = document.getElementById("totalMoney").innerText;
+			var pastMoney = parseInt(totalstr.split(":")[1].substring(2));
+			document.getElementById("totalMoney").innerHTML = "Total: $" + (pastMoney + money);
+		});
+
+		$(".cakes-less").click(function () {
+			var cakeNum = parseInt($(this).next().val());
+			var cakeName = $(this).parent().prev().prev()[0].innerHTML;
+			if (cakeNum > 1) {
+				$(this).next().val(cakeNum - 1);
+				var a = cakeName.split("|");
+				var money = parseInt(a[2].substring(2));
+				var totalstr = document.getElementById("totalMoney").innerText;
+				var pastMoney = parseInt(totalstr.split(":")[1].substring(2));
+				document.getElementById("totalMoney").innerHTML = "Total: $" + (pastMoney - money);
+
+			} else {
+				var checkTip = confirm("确认删除该商品吗？")
+				if (checkTip == true) {
+					document.getElementById("orderMenuType").style.display = "none";
+				}
+			}
+		});
+
+		$(".cakes-more").click(function () {
+			var cakeNum = parseInt($(this).prev().val());
+			var cakeName = $(this).parent().prev().prev()[0].innerHTML;
+			if (cakeNum >= 1) {
+				$(this).prev().val(cakeNum + 1);
+
+				var a = cakeName.split("|");
+				var money = parseInt(a[2].substring(2));
+				var totalstr = document.getElementById("totalMoney").innerText;
+				var pastMoney = parseInt(totalstr.split(":")[1].substring(2));
+				document.getElementById("totalMoney").innerHTML = "Total: $" + (pastMoney + money);
+			}
+		});
+
+		$("#otherOrdrMenuType").on("click", ".cakes-more", function () {
+			var cakeNum = parseInt($(this).prev().val());
+			var cakeName = $(this).parent().prev().prev()[0].innerHTML;
+			var divcake = $(this).parent().parent()
+			if (cakeNum >= 1) {
+				$(this).prev().val(cakeNum + 1);
+
+				var a = cakeName.split("|");
+				var money = parseInt(a[2].substring(2));
+				var totalstr = document.getElementById("totalMoney").innerText;
+				var pastMoney = parseInt(totalstr.split(":")[1].substring(2));
+				document.getElementById("totalMoney").innerHTML = "Total: $" + (pastMoney + money);
+			}
+		});
+
+		$("#otherOrdrMenuType").on("click", ".cakes-less", function () {
+			var cakeNum = parseInt($(this).next().val());
+			var cakeName = $(this).parent().prev().prev()[0].innerHTML;
+			var divcake = $(this).parent().parent();
+			var divline = $(this).parent().parent().next()[0];
+			var a = cakeName.split("|");
+			var money = parseInt(a[2].substring(2));
+			var totalstr = document.getElementById("totalMoney").innerText;
+			var pastMoney = parseInt(totalstr.split(":")[1].substring(2));
+			if (cakeNum > 1) {
+				$(this).next().val(cakeNum - 1);
+				document.getElementById("totalMoney").innerHTML = "Total: $" + (pastMoney - money);
+
+			} else {
+				var checkTip = confirm("确认删除该商品吗？")
+				if (checkTip == true) {
+					// divline.remove();
+					$(this).parent().parent().parent().next('hr').remove();
+					divcake.remove();
+					document.getElementById("totalMoney").innerHTML = "Total: $" + (pastMoney - money);
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>
